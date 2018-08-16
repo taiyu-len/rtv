@@ -502,7 +502,7 @@ class Navigator(object):
 
         assert n_windows >= 0
         self.page_index += (self.step * n_windows)
-        self.cursor_index = n_windows
+        self.cursor_index = max(0, min(n_windows,n_windows - self.cursor_index))
         self.inverted = not self.inverted
         self.top_item_height = None
 
